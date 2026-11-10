@@ -1,0 +1,15 @@
+{
+  "teams": {
+    "billing": ["alice"],
+    "inventory": ["bob"],
+    "admins": ["carol"]
+  },
+  "rules": [
+    {"path": "shopfront/billing/payments.py", "allow": ["billing", "admins"]},
+    {"path": "shopfront/config.py", "allow": ["admins"]},
+    {"path": "shopfront/billing/", "allow": ["billing", "admins"]},
+    {"path": "shopfront/inventory/", "allow": ["inventory", "billing", "admins"]},
+    {"path": "", "allow": ["billing", "inventory", "admins"]}
+  ],
+  "_comment": "First matching rule (in order) wins. Empty path matches everything."
+}
